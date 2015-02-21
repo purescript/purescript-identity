@@ -2,39 +2,100 @@
 
 ## Module Data.Identity
 
-### Types
+#### `Identity`
 
-    newtype Identity a where
-      Identity :: a -> Identity a
-
-
-### Type Class Instances
-
-    instance applicativeIdentity :: Applicative Identity
-
-    instance applyIdentity :: Apply Identity
-
-    instance bindIdentity :: Bind Identity
-
-    instance comonadIdentity :: Comonad Identity
-
-    instance eqIdentity :: (Eq a) => Eq (Identity a)
-
-    instance extendIdentity :: Extend Identity
-
-    instance foldableIdentity :: Foldable Identity
-
-    instance functorIdentity :: Functor Identity
-
-    instance monadIdentity :: Monad Identity
-
-    instance ordIdentity :: (Ord a) => Ord (Identity a)
-
-    instance showConst :: (Show a) => Show (Identity a)
-
-    instance traversableIdentity :: Traversable Identity
+``` purescript
+newtype Identity a
+  = Identity a
+```
 
 
-### Values
+#### `runIdentity`
 
-    runIdentity :: forall a. Identity a -> a
+``` purescript
+runIdentity :: forall a. Identity a -> a
+```
+
+
+#### `eqIdentity`
+
+``` purescript
+instance eqIdentity :: (Eq a) => Eq (Identity a)
+```
+
+
+#### `ordIdentity`
+
+``` purescript
+instance ordIdentity :: (Ord a) => Ord (Identity a)
+```
+
+
+#### `showConst`
+
+``` purescript
+instance showConst :: (Show a) => Show (Identity a)
+```
+
+
+#### `functorIdentity`
+
+``` purescript
+instance functorIdentity :: Functor Identity
+```
+
+
+#### `applyIdentity`
+
+``` purescript
+instance applyIdentity :: Apply Identity
+```
+
+
+#### `applicativeIdentity`
+
+``` purescript
+instance applicativeIdentity :: Applicative Identity
+```
+
+
+#### `bindIdentity`
+
+``` purescript
+instance bindIdentity :: Bind Identity
+```
+
+
+#### `monadIdentity`
+
+``` purescript
+instance monadIdentity :: Monad Identity
+```
+
+
+#### `extendIdentity`
+
+``` purescript
+instance extendIdentity :: Extend Identity
+```
+
+
+#### `comonadIdentity`
+
+``` purescript
+instance comonadIdentity :: Comonad Identity
+```
+
+
+#### `foldableIdentity`
+
+``` purescript
+instance foldableIdentity :: Foldable Identity
+```
+
+
+#### `traversableIdentity`
+
+``` purescript
+instance traversableIdentity :: Traversable Identity
+```

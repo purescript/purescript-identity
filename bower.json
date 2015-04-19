@@ -1,7 +1,7 @@
 {
   "name": "purescript-identity",
   "homepage": "https://github.com/purescript/purescript-identity",
-  "description": "Identity value/functor",
+  "description": "Identity value",
   "keywords": [
     "purescript"
   ],
@@ -16,10 +16,10 @@
     "node_modules",
     "output",
     "bower.json",
-    "Gruntfile.js",
+    "gulpfile.js",
     "package.json"
   ],
   "dependencies": {
-    "purescript-foldable-traversable": "~0.3.0"
+    "purescript-foldable-traversable": "~0.4.0"
   }
 }

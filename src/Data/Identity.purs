@@ -12,12 +12,16 @@ runIdentity (Identity x) = x
 
 instance eqIdentity :: (Eq a) => Eq (Identity a) where
   (==) (Identity x) (Identity y) = x == y
-  (/=) x y = not (x == y)
+  (/=) (Identity x) (Identity y) = x /= y
 
 instance ordIdentity :: (Ord a) => Ord (Identity a) where
   compare (Identity x) (Identity y) = compare x y
 
-instance showConst :: (Show a) => Show (Identity a) where
+instance boundedIdentity :: (Bounded a) => Bounded (Identity a) where
+  top = Identity top
+  bottom = Identity bottom
+
+instance showIdentity :: (Show a) => Show (Identity a) where
   show (Identity x) = "Identity (" ++ show x ++ ")"
 
 instance functorIdentity :: Functor Identity where

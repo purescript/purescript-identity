@@ -1,5 +1,3 @@
-# Module Documentation
-
 ## Module Data.Identity
 
 #### `Identity`
@@ -9,104 +7,28 @@ newtype Identity a
   = Identity a
 ```
 
+##### Instances
+``` purescript
+instance eqIdentity :: (Eq a) => Eq (Identity a)
+instance ordIdentity :: (Ord a) => Ord (Identity a)
+instance boundedIdentity :: (Bounded a) => Bounded (Identity a)
+instance showIdentity :: (Show a) => Show (Identity a)
+instance functorIdentity :: Functor Identity
+instance invariantIdentity :: Invariant Identity
+instance applyIdentity :: Apply Identity
+instance applicativeIdentity :: Applicative Identity
+instance bindIdentity :: Bind Identity
+instance monadIdentity :: Monad Identity
+instance extendIdentity :: Extend Identity
+instance comonadIdentity :: Comonad Identity
+instance foldableIdentity :: Foldable Identity
+instance traversableIdentity :: Traversable Identity
+```
 
 #### `runIdentity`
 
 ``` purescript
 runIdentity :: forall a. Identity a -> a
 ```
-
-
-#### `eqIdentity`
-
-``` purescript
-instance eqIdentity :: (Eq a) => Eq (Identity a)
-```
-
-
-#### `ordIdentity`
-
-``` purescript
-instance ordIdentity :: (Ord a) => Ord (Identity a)
-```
-
-
-#### `boundedIdentity`
-
-``` purescript
-instance boundedIdentity :: (Bounded a) => Bounded (Identity a)
-```
-
-
-#### `showIdentity`
-
-``` purescript
-instance showIdentity :: (Show a) => Show (Identity a)
-```
-
-
-#### `functorIdentity`
-
-``` purescript
-instance functorIdentity :: Functor Identity
-```
-
-
-#### `applyIdentity`
-
-``` purescript
-instance applyIdentity :: Apply Identity
-```
-
-
-#### `applicativeIdentity`
-
-``` purescript
-instance applicativeIdentity :: Applicative Identity
-```
-
-
-#### `bindIdentity`
-
-``` purescript
-instance bindIdentity :: Bind Identity
-```
-
-
-#### `monadIdentity`
-
-``` purescript
-instance monadIdentity :: Monad Identity
-```
-
-
-#### `extendIdentity`
-
-``` purescript
-instance extendIdentity :: Extend Identity
-```
-
-
-#### `comonadIdentity`
-
-``` purescript
-instance comonadIdentity :: Comonad Identity
-```
-
-
-#### `foldableIdentity`
-
-``` purescript
-instance foldableIdentity :: Foldable Identity
-```
-
-
-#### `traversableIdentity`
-
-``` purescript
-instance traversableIdentity :: Traversable Identity
-```
-
-
 
 

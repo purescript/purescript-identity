@@ -10,11 +10,16 @@
     "Hardy Jones <jones3.hardy@gmail.com>"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/purescript/purescript-identity.git"
+  },
   "ignore": [
     "**/.*",
     "bower_components",
     "node_modules",
     "output",
+    "test",
     "bower.json",
     "gulpfile.js",
     "package.json"

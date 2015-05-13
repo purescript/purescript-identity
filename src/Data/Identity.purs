@@ -5,6 +5,7 @@ import Control.Extend (Extend, (<<=))
 import Data.Foldable (Foldable, foldr, foldl, foldMap)
 import Data.Functor.Invariant (Invariant, imapF)
 import Data.Traversable (Traversable, traverse, sequence)
+import Data.Monoid (Monoid, mempty)
 
 newtype Identity a = Identity a
 
@@ -23,6 +24,42 @@ instance boundedIdentity :: (Bounded a) => Bounded (Identity a) where
 
 instance showIdentity :: (Show a) => Show (Identity a) where
   show (Identity x) = "Identity (" ++ show x ++ ")"
+
+instance semiringIdentity :: (Semiring a) => Semiring (Identity a) where
+  (+) = liftM2 (+)
+  zero = Identity zero
+  (*) = liftM2 (*)
+  one = Identity one
+
+instance moduloSemiringIdentity :: (ModuloSemiring a) => ModuloSemiring (Identity a) where
+  mod = liftM2 mod
+  (/) = liftM2 (/)
+
+instance ringIdentity :: (Ring a) => Ring (Identity a) where
+  (-) = liftM2 (-)
+
+instance latticeIdentity :: (Lattice a) => Lattice (Identity a) where
+  sup = liftM2 sup
+  inf = liftM2 inf
+
+instance semigroupIdenity :: (Semigroup a) => Semigroup (Identity a) where
+  append = liftM2 append
+
+instance monoidIdentity :: (Monoid a) => Monoid (Identity a) where
+  mempty = pure mempty
+
+instance boundedLatticeIdentity :: (BoundedLattice a) => BoundedLattice (Identity a)
+
+instance complementedLatticeIdentity :: (ComplementedLattice a) => ComplementedLattice (Identity a) where
+  not x = not <$> x
+
+instance distributiveLatticeIdentity :: (DistributiveLattice a) => DistributiveLattice (Identity a)
+
+instance booleanAlgebraIdentity :: (BooleanAlgebra a) => BooleanAlgebra (Identity a)
+
+instance divisionRightIdentity :: (DivisionRing a) => DivisionRing (Identity a)
+
+instance numIdentity :: (Num a) => Num (Identity a)
 
 instance functorIdentity :: Functor Identity where
   map f (Identity x) = Identity (f x)
@@ -55,3 +92,6 @@ instance foldableIdentity :: Foldable Identity where
 instance traversableIdentity :: Traversable Identity where
   traverse f (Identity x) = Identity <$> f x
   sequence (Identity x) = Identity <$> x
+
+liftM2 :: forall a m. (Monad m) => (a -> a -> a) -> m a -> m a -> m a
+liftM2 f ma ma' = f <$> ma <*> ma'

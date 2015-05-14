@@ -12,6 +12,18 @@ newtype Identity a
 instance eqIdentity :: (Eq a) => Eq (Identity a)
 instance ordIdentity :: (Ord a) => Ord (Identity a)
 instance boundedIdentity :: (Bounded a) => Bounded (Identity a)
+instance latticeIdentity :: (Lattice a) => Lattice (Identity a)
+instance boundedLatticeIdentity :: (BoundedLattice a) => BoundedLattice (Identity a)
+instance complementedLatticeIdentity :: (ComplementedLattice a) => ComplementedLattice (Identity a)
+instance distributiveLatticeIdentity :: (DistributiveLattice a) => DistributiveLattice (Identity a)
+instance booleanAlgebraIdentity :: (BooleanAlgebra a) => BooleanAlgebra (Identity a)
+instance semigroupIdenity :: (Semigroup a) => Semigroup (Identity a)
+instance monoidIdentity :: (Monoid a) => Monoid (Identity a)
+instance semiringIdentity :: (Semiring a) => Semiring (Identity a)
+instance moduloSemiringIdentity :: (ModuloSemiring a) => ModuloSemiring (Identity a)
+instance ringIdentity :: (Ring a) => Ring (Identity a)
+instance divisionRingIdentity :: (DivisionRing a) => DivisionRing (Identity a)
+instance numIdentity :: (Num a) => Num (Identity a)
 instance showIdentity :: (Show a) => Show (Identity a)
 instance functorIdentity :: Functor Identity
 instance invariantIdentity :: Invariant Identity

@@ -4,6 +4,7 @@ import Control.Comonad (Comonad, extract)
 import Control.Extend (Extend, (<<=))
 import Data.Foldable (Foldable, foldr, foldl, foldMap)
 import Data.Functor.Invariant (Invariant, imapF)
+import Data.Monoid (Monoid, mempty)
 import Data.Traversable (Traversable, traverse, sequence)
 
 newtype Identity a = Identity a
@@ -20,6 +21,42 @@ instance ordIdentity :: (Ord a) => Ord (Identity a) where
 instance boundedIdentity :: (Bounded a) => Bounded (Identity a) where
   top = Identity top
   bottom = Identity bottom
+
+instance latticeIdentity :: (Lattice a) => Lattice (Identity a) where
+  sup (Identity x) (Identity y) = Identity (x || y)
+  inf (Identity x) (Identity y) = Identity (x && y)
+
+instance boundedLatticeIdentity :: (BoundedLattice a) => BoundedLattice (Identity a)
+
+instance complementedLatticeIdentity :: (ComplementedLattice a) => ComplementedLattice (Identity a) where
+  not (Identity x) = Identity (not x)
+
+instance distributiveLatticeIdentity :: (DistributiveLattice a) => DistributiveLattice (Identity a)
+
+instance booleanAlgebraIdentity :: (BooleanAlgebra a) => BooleanAlgebra (Identity a)
+
+instance semigroupIdenity :: (Semigroup a) => Semigroup (Identity a) where
+  append (Identity x) (Identity y) = Identity (x <> y)
+
+instance monoidIdentity :: (Monoid a) => Monoid (Identity a) where
+  mempty = Identity mempty
+
+instance semiringIdentity :: (Semiring a) => Semiring (Identity a) where
+  add (Identity x) (Identity y) = Identity (x + y)
+  zero = Identity zero
+  mul (Identity x) (Identity y) = Identity (x * y)
+  one = Identity one
+
+instance moduloSemiringIdentity :: (ModuloSemiring a) => ModuloSemiring (Identity a) where
+  mod (Identity x) (Identity y) = Identity (x `mod` y)
+  div (Identity x) (Identity y) = Identity (x / y)
+
+instance ringIdentity :: (Ring a) => Ring (Identity a) where
+  sub (Identity x) (Identity y) = Identity (x - y)
+
+instance divisionRingIdentity :: (DivisionRing a) => DivisionRing (Identity a)
+
+instance numIdentity :: (Num a) => Num (Identity a)
 
 instance showIdentity :: (Show a) => Show (Identity a) where
   show (Identity x) = "Identity (" ++ show x ++ ")"

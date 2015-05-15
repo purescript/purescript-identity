@@ -12,4 +12,4 @@ bower install purescript-identity
 
 ## Module documentation
 
-[`docs/MODULE.md`](docs/MODULE.md)
+[`docs/Data.Identity.md`](docs/Data.Identity.md)

@@ -1,5 +1,7 @@
 module Data.Identity where
 
+import Prelude
+
 import Control.Comonad (Comonad, extract)
 import Control.Extend (Extend, (<<=))
 import Data.Foldable (Foldable, foldr, foldl, foldMap)
@@ -22,18 +24,10 @@ instance boundedIdentity :: (Bounded a) => Bounded (Identity a) where
   top = Identity top
   bottom = Identity bottom
 
-instance latticeIdentity :: (Lattice a) => Lattice (Identity a) where
-  sup (Identity x) (Identity y) = Identity (x || y)
-  inf (Identity x) (Identity y) = Identity (x && y)
-
-instance boundedLatticeIdentity :: (BoundedLattice a) => BoundedLattice (Identity a)
-
-instance complementedLatticeIdentity :: (ComplementedLattice a) => ComplementedLattice (Identity a) where
+instance booleanAlgebraIdentity :: (BooleanAlgebra a) => BooleanAlgebra (Identity a) where
+  conj (Identity x) (Identity y) = Identity (conj x y)
+  disj (Identity x) (Identity y) = Identity (disj x y)
   not (Identity x) = Identity (not x)
-
-instance distributiveLatticeIdentity :: (DistributiveLattice a) => DistributiveLattice (Identity a)
-
-instance booleanAlgebraIdentity :: (BooleanAlgebra a) => BooleanAlgebra (Identity a)
 
 instance semigroupIdenity :: (Semigroup a) => Semigroup (Identity a) where
   append (Identity x) (Identity y) = Identity (x <> y)

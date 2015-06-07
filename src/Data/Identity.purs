@@ -24,6 +24,8 @@ instance boundedIdentity :: (Bounded a) => Bounded (Identity a) where
   top = Identity top
   bottom = Identity bottom
 
+instance boundedOrdIdentity :: (BoundedOrd a) => BoundedOrd (Identity a)
+
 instance booleanAlgebraIdentity :: (BooleanAlgebra a) => BooleanAlgebra (Identity a) where
   conj (Identity x) (Identity y) = Identity (conj x y)
   disj (Identity x) (Identity y) = Identity (disj x y)

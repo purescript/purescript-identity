@@ -1,6 +1,8 @@
 # purescript-identity
 
+[![Latest release](http://img.shields.io/bower/v/purescript-identity.svg)](https://github.com/purescript/purescript-identity/releases)
 [![Build Status](https://travis-ci.org/purescript/purescript-identity.svg?branch=master)](https://travis-ci.org/purescript/purescript-identity)
+[![Dependency Status](https://www.versioneye.com/user/projects/55848cab363861001b0001a5/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55848cab363861001b0001a5)
 
 Identity value.
 
@@ -12,4 +14,4 @@ bower install purescript-identity
 
 ## Module documentation
 
-- [Data.Identity](docs/Data.Identity.md)
+- [Data.Identity](docs/Data/Identity.md)

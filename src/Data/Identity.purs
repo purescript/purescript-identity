@@ -2,12 +2,12 @@ module Data.Identity where
 
 import Prelude
 
-import Control.Comonad (Comonad, extract)
-import Control.Extend (Extend, (<<=))
-import Data.Foldable (Foldable, foldr, foldl, foldMap)
+import Control.Comonad (Comonad)
+import Control.Extend (Extend)
+import Data.Foldable (Foldable)
 import Data.Functor.Invariant (Invariant, imapF)
 import Data.Monoid (Monoid, mempty)
-import Data.Traversable (Traversable, traverse, sequence)
+import Data.Traversable (Traversable)
 
 newtype Identity a = Identity a
 

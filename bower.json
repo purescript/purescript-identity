@@ -2,9 +2,6 @@
   "name": "purescript-identity",
   "homepage": "https://github.com/purescript/purescript-identity",
   "description": "Identity value",
-  "keywords": [
-    "purescript"
-  ],
   "authors": [
     "Gary Burgess <gary.burgess@gmail.com>",
     "Hardy Jones <jones3.hardy@gmail.com>"
@@ -24,6 +21,6 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-foldable-traversable": "^0.4.0"
+    "purescript-foldable-traversable": "^1.0.0-rc.1"
   }
 }

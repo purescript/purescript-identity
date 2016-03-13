@@ -12,6 +12,6 @@ Identity value.
 bower install purescript-identity
 ```
 
-## Module documentation
+## Documentation
 
-- [Data.Identity](docs/Data/Identity.md)
+Module documentation is [published on Pursuit](http://pursuit.purescript.org/packages/purescript-identity).

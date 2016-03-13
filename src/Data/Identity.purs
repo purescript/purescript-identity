@@ -1,13 +1,29 @@
 module Data.Identity where
 
-import Prelude
+import Control.Applicative (class Applicative)
+import Control.Apply (class Apply)
+import Control.Bind (class Bind)
+import Control.Comonad (class Comonad)
+import Control.Extend (class Extend)
+import Control.Monad (class Monad)
 
-import Control.Comonad (Comonad)
-import Control.Extend (Extend)
-import Data.Foldable (Foldable)
-import Data.Functor.Invariant (Invariant, imapF)
-import Data.Monoid (Monoid, mempty)
-import Data.Traversable (Traversable)
+import Data.BooleanAlgebra (class BooleanAlgebra, not, (||), (&&))
+import Data.Bounded (class Bounded, bottom, top)
+import Data.BoundedOrd (class BoundedOrd)
+import Data.DivisionRing (class DivisionRing)
+import Data.Eq (class Eq, (==))
+import Data.Foldable (class Foldable)
+import Data.Functor (class Functor, (<$>))
+import Data.Functor.Invariant (class Invariant, imapF)
+import Data.ModuloSemiring (class ModuloSemiring, mod, (/))
+import Data.Monoid (class Monoid, mempty)
+import Data.Num (class Num)
+import Data.Ord (class Ord, compare)
+import Data.Ring (class Ring, (-))
+import Data.Semigroup (class Semigroup, (<>))
+import Data.Semiring (class Semiring, one, zero, (+), (*))
+import Data.Show (class Show, show)
+import Data.Traversable (class Traversable)
 
 newtype Identity a = Identity a
 
@@ -27,8 +43,8 @@ instance boundedIdentity :: (Bounded a) => Bounded (Identity a) where
 instance boundedOrdIdentity :: (BoundedOrd a) => BoundedOrd (Identity a)
 
 instance booleanAlgebraIdentity :: (BooleanAlgebra a) => BooleanAlgebra (Identity a) where
-  conj (Identity x) (Identity y) = Identity (conj x y)
-  disj (Identity x) (Identity y) = Identity (disj x y)
+  conj (Identity x) (Identity y) = Identity (x && y)
+  disj (Identity x) (Identity y) = Identity (x || y)
   not (Identity x) = Identity (not x)
 
 instance semigroupIdenity :: (Semigroup a) => Semigroup (Identity a) where
@@ -55,7 +71,7 @@ instance divisionRingIdentity :: (DivisionRing a) => DivisionRing (Identity a)
 instance numIdentity :: (Num a) => Num (Identity a)
 
 instance showIdentity :: (Show a) => Show (Identity a) where
-  show (Identity x) = "Identity (" ++ show x ++ ")"
+  show (Identity x) = "(Identity " <> show x <> ")"
 
 instance functorIdentity :: Functor Identity where
   map f (Identity x) = Identity (f x)

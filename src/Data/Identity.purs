@@ -1,5 +1,6 @@
 module Data.Identity where
 
+import Control.Alt (class Alt)
 import Control.Applicative (class Applicative)
 import Control.Apply (class Apply)
 import Control.Bind (class Bind)
@@ -82,6 +83,9 @@ instance functorIdentity :: Functor Identity where
 
 instance invariantIdentity :: Invariant Identity where
   imap = imapF
+
+instance altIdentity :: Alt Identity where
+  alt x _ = x
 
 instance applyIdentity :: Apply Identity where
   apply (Identity f) (Identity x) = Identity (f x)

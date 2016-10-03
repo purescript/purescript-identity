@@ -1,79 +1,44 @@
 module Data.Identity where
 
+import Prelude
+
 import Control.Alt (class Alt)
-import Control.Applicative (class Applicative)
-import Control.Apply (class Apply)
-import Control.Bind (class Bind)
 import Control.Comonad (class Comonad)
 import Control.Extend (class Extend)
-import Control.Monad (class Monad)
 
-import Data.BooleanAlgebra (class BooleanAlgebra)
-import Data.Bounded (class Bounded, bottom, top)
-import Data.CommutativeRing (class CommutativeRing)
-import Data.Eq (class Eq, (==))
-import Data.EuclideanRing (class EuclideanRing, degree, mod, (/))
-import Data.Field (class Field)
 import Data.Foldable (class Foldable)
-import Data.Functor (class Functor, (<$>))
 import Data.Functor.Invariant (class Invariant, imapF)
-import Data.HeytingAlgebra (class HeytingAlgebra, not, implies, ff, tt, (||), (&&))
-import Data.Monoid (class Monoid, mempty)
-import Data.Ord (class Ord, compare)
-import Data.Ring (class Ring, (-))
-import Data.Semigroup (class Semigroup, (<>))
-import Data.Semiring (class Semiring, one, zero, (+), (*))
-import Data.Show (class Show, show)
+import Data.Monoid (class Monoid)
+import Data.Newtype (class Newtype)
 import Data.Traversable (class Traversable)
 
 newtype Identity a = Identity a
 
-runIdentity :: forall a. Identity a -> a
-runIdentity (Identity x) = x
+derive instance newtypeIdentity :: Newtype (Identity a) _
 
-instance eqIdentity :: Eq a => Eq (Identity a) where
-  eq (Identity x) (Identity y) = x == y
+derive newtype instance eqIdentity :: Eq a => Eq (Identity a)
 
-instance ordIdentity :: Ord a => Ord (Identity a) where
-  compare (Identity x) (Identity y) = compare x y
+derive newtype instance ordIdentity :: Ord a => Ord (Identity a)
 
-instance boundedIdentity :: Bounded a => Bounded (Identity a) where
-  top = Identity top
-  bottom = Identity bottom
+derive newtype instance boundedIdentity :: Bounded a => Bounded (Identity a)
 
-instance heytingAlgebraIdentity :: HeytingAlgebra a => HeytingAlgebra (Identity a) where
-  ff = Identity ff
-  tt = Identity tt
-  implies (Identity x) (Identity y) = Identity (x `implies` y)
-  conj (Identity x) (Identity y) = Identity (x && y)
-  disj (Identity x) (Identity y) = Identity (x || y)
-  not (Identity x) = Identity (not x)
+derive newtype instance heytingAlgebraIdentity :: HeytingAlgebra a => HeytingAlgebra (Identity a)
 
-instance booleanAlgebraIdentity :: BooleanAlgebra a => BooleanAlgebra (Identity a) where
+derive newtype instance booleanAlgebraIdentity :: BooleanAlgebra a => BooleanAlgebra (Identity a)
 
-instance semigroupIdenity :: Semigroup a => Semigroup (Identity a) where
-  append (Identity x) (Identity y) = Identity (x <> y)
+derive newtype instance semigroupIdenity :: Semigroup a => Semigroup (Identity a)
 
-instance monoidIdentity :: Monoid a => Monoid (Identity a) where
-  mempty = Identity mempty
+derive newtype instance monoidIdentity :: Monoid a => Monoid (Identity a)
 
-instance semiringIdentity :: Semiring a => Semiring (Identity a) where
-  add (Identity x) (Identity y) = Identity (x + y)
-  zero = Identity zero
-  mul (Identity x) (Identity y) = Identity (x * y)
-  one = Identity one
+derive newtype instance semiringIdentity :: Semiring a => Semiring (Identity a)
 
-instance euclideanRingIdentity :: EuclideanRing a => EuclideanRing (Identity a) where
-  degree (Identity x) = degree x
-  mod (Identity x) (Identity y) = Identity (x `mod` y)
-  div (Identity x) (Identity y) = Identity (x / y)
+derive newtype instance euclideanRingIdentity :: EuclideanRing a => EuclideanRing (Identity a)
 
-instance ringIdentity :: Ring a => Ring (Identity a) where
-  sub (Identity x) (Identity y) = Identity (x - y)
+derive newtype instance ringIdentity :: Ring a => Ring (Identity a)
 
-instance commutativeRingIdentity :: CommutativeRing a => CommutativeRing (Identity a)
+derive newtype instance commutativeRingIdentity :: CommutativeRing a => CommutativeRing (Identity a)
 
-instance fieldIdentity :: Field a => Field (Identity a)
+derive newtype instance fieldIdentity :: Field a => Field (Identity a)
 
 instance showIdentity :: Show a => Show (Identity a) where
   show (Identity x) = "(Identity " <> show x <> ")"

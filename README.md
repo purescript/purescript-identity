@@ -1,8 +1,7 @@
 # purescript-identity
 
-[![Latest release](http://img.shields.io/bower/v/purescript-identity.svg)](https://github.com/purescript/purescript-identity/releases)
-[![Build Status](https://travis-ci.org/purescript/purescript-identity.svg?branch=master)](https://travis-ci.org/purescript/purescript-identity)
-[![Dependency Status](https://www.versioneye.com/user/projects/55848cab363861001b0001a5/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55848cab363861001b0001a5)
+[![Latest release](http://img.shields.io/github/release/purescript/purescript-identity.svg)](https://github.com/purescript/purescript-identity/releases)
+[![Build status](https://travis-ci.org/purescript/purescript-identity.svg?branch=master)](https://travis-ci.org/purescript/purescript-identity)
 
 Identity value.
 

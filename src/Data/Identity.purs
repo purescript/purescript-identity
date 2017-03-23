@@ -5,6 +5,7 @@ import Prelude
 import Control.Alt (class Alt)
 import Control.Comonad (class Comonad)
 import Control.Extend (class Extend)
+import Control.Lazy (class Lazy)
 
 import Data.Foldable (class Foldable)
 import Data.Functor.Invariant (class Invariant, imapF)
@@ -39,6 +40,8 @@ derive newtype instance ringIdentity :: Ring a => Ring (Identity a)
 derive newtype instance commutativeRingIdentity :: CommutativeRing a => CommutativeRing (Identity a)
 
 derive newtype instance fieldIdentity :: Field a => Field (Identity a)
+
+derive newtype instance lazyIdentity :: Lazy a => Lazy (Identity a)
 
 instance showIdentity :: Show a => Show (Identity a) where
   show (Identity x) = "(Identity " <> show x <> ")"

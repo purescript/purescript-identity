@@ -9,6 +9,7 @@ import Control.Lazy (class Lazy)
 
 import Data.Foldable (class Foldable)
 import Data.Functor.Invariant (class Invariant, imapF)
+import Data.Generic (class Generic)
 import Data.Monoid (class Monoid)
 import Data.Newtype (class Newtype)
 import Data.Traversable (class Traversable)
@@ -16,6 +17,8 @@ import Data.Traversable (class Traversable)
 newtype Identity a = Identity a
 
 derive instance newtypeIdentity :: Newtype (Identity a) _
+
+derive instance genericIdentity :: Generic a => Generic (Identity a)
 
 derive newtype instance eqIdentity :: Eq a => Eq (Identity a)
 

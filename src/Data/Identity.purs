@@ -6,11 +6,9 @@ import Control.Alt (class Alt)
 import Control.Comonad (class Comonad)
 import Control.Extend (class Extend)
 import Control.Lazy (class Lazy)
-
 import Data.Eq (class Eq1)
 import Data.Foldable (class Foldable)
 import Data.Functor.Invariant (class Invariant, imapF)
-import Data.Monoid (class Monoid)
 import Data.Newtype (class Newtype)
 import Data.Ord (class Ord1)
 import Data.Traversable (class Traversable)
@@ -41,21 +39,16 @@ derive newtype instance ringIdentity :: Ring a => Ring (Identity a)
 
 derive newtype instance commutativeRingIdentity :: CommutativeRing a => CommutativeRing (Identity a)
 
-derive newtype instance fieldIdentity :: Field a => Field (Identity a)
-
 derive newtype instance lazyIdentity :: Lazy a => Lazy (Identity a)
 
 instance showIdentity :: Show a => Show (Identity a) where
   show (Identity x) = "(Identity " <> show x <> ")"
 
-instance eq1Identity :: Eq1 Identity where
-  eq1 = eq
+derive instance eq1Identity :: Eq1 Identity
 
-instance ord1Identity :: Ord1 Identity where
-  compare1 = compare
+derive instance ord1Identity :: Ord1 Identity
 
-instance functorIdentity :: Functor Identity where
-  map f (Identity x) = Identity (f x)
+derive instance functorIdentity :: Functor Identity
 
 instance invariantIdentity :: Invariant Identity where
   imap = imapF

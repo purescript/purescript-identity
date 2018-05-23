@@ -1,12 +1,11 @@
 {
   "name": "purescript-identity",
   "homepage": "https://github.com/purescript/purescript-identity",
-  "description": "Identity value",
   "authors": [
     "Gary Burgess <gary.burgess@gmail.com>",
     "Hardy Jones <jones3.hardy@gmail.com>"
   ],
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "git://github.com/purescript/purescript-identity.git"
@@ -21,6 +20,10 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-foldable-traversable": "#compiler/0.12"
+    "purescript-control": "^4.0.0",
+    "purescript-foldable-traversable": "^4.0.0",
+    "purescript-invariant": "^4.0.0",
+    "purescript-newtype": "^3.0.0",
+    "purescript-prelude": "^4.0.0"
   }
 }

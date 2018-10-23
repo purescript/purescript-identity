@@ -8,10 +8,15 @@ import Control.Extend (class Extend)
 import Control.Lazy (class Lazy)
 import Data.Eq (class Eq1)
 import Data.Foldable (class Foldable)
+import Data.FoldableWithIndex (class FoldableWithIndex)
 import Data.Functor.Invariant (class Invariant, imapF)
+import Data.FunctorWithIndex (class FunctorWithIndex)
 import Data.Newtype (class Newtype)
 import Data.Ord (class Ord1)
+import Data.Semigroup.Foldable (class Foldable1)
+import Data.Semigroup.Traversable (class Traversable1)
 import Data.Traversable (class Traversable)
+import Data.TraversableWithIndex (class TraversableWithIndex)
 
 newtype Identity a = Identity a
 
@@ -50,6 +55,9 @@ derive instance ord1Identity :: Ord1 Identity
 
 derive instance functorIdentity :: Functor Identity
 
+instance functorWithIndexIdentity :: FunctorWithIndex Unit Identity where
+  mapWithIndex f (Identity a) = Identity (f unit a)
+
 instance invariantIdentity :: Invariant Identity where
   imap = imapF
 
@@ -78,6 +86,22 @@ instance foldableIdentity :: Foldable Identity where
   foldl f z (Identity x) = f z x
   foldMap f (Identity x) = f x
 
+instance foldable1Identity :: Foldable1 Identity where
+  fold1 (Identity x) = x
+  foldMap1 f (Identity x) = f x
+
+instance foldableWithIndexIdentity :: FoldableWithIndex Unit Identity where
+  foldrWithIndex f z (Identity x) = f unit x z
+  foldlWithIndex f z (Identity x) = f unit z x
+  foldMapWithIndex f (Identity x) = f unit x
+
 instance traversableIdentity :: Traversable Identity where
   traverse f (Identity x) = Identity <$> f x
   sequence (Identity x) = Identity <$> x
+
+instance traversable1Identity :: Traversable1 Identity where
+  traverse1 f (Identity x) = Identity <$> f x
+  sequence1 (Identity x) = Identity <$> x
+
+instance traversableWithIndexIdentity :: TraversableWithIndex Unit Identity where
+  traverseWithIndex f (Identity x) = Identity <$> f unit x

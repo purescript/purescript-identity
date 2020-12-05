@@ -1,14 +1,14 @@
 # purescript-identity
 
 [![Latest release](http://img.shields.io/github/release/purescript/purescript-identity.svg)](https://github.com/purescript/purescript-identity/releases)
-[![Build status](https://travis-ci.org/purescript/purescript-identity.svg?branch=master)](https://travis-ci.org/purescript/purescript-identity)
+[![Build status](https://github.com/purescript/purescript-identity/workflows/CI/badge.svg?branch=master)](https://github.com/purescript/purescript-identity/actions?query=workflow%3ACI+branch%3Amaster)
 
 Identity value.
 
 ## Installation
 
 ```
-bower install purescript-identity
+spago install identity
 ```
 
 ## Documentation

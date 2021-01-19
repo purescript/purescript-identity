@@ -10,7 +10,7 @@ Breaking changes:
 New features:
 
 Bugfixes:
-- Changed `Foldable1`'s `fold1` instance to `foldl1` and `foldr1` (#21, #23)
+- Changed `Foldable1`'s `fold1` member to `foldl1` and `foldr1` (#21, #23)
 
 Other improvements:
 - Migrated CI to GitHub Actions and updated installation instructions to use Spago (#22)

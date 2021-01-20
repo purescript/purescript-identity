@@ -10,11 +10,11 @@ Breaking changes:
 New features:
 
 Bugfixes:
-- Changed `Foldable1`'s `fold1` member to `foldl1` and `foldr1` (#21, #23)
 
 Other improvements:
 - Migrated CI to GitHub Actions and updated installation instructions to use Spago (#22)
 - Added a CHANGELOG.md file and pull request template (#24, #25)
+- Updated `Identity`'s `Foldable1` instance to account for changes in `Foldable1` definition (#21, #23)
 
 ## [v4.1.0](https://github.com/purescript/purescript-identity/releases/tag/v4.1.0) - 2018-10-23
 

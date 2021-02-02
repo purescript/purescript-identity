@@ -21,7 +21,6 @@
   ],
   "dependencies": {
     "purescript-control": "master",
-    "purescript-foldable-traversable": "master",
     "purescript-invariant": "master",
     "purescript-newtype": "master",
     "purescript-prelude": "master"

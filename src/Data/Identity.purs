@@ -25,7 +25,7 @@ derive newtype instance heytingAlgebraIdentity :: HeytingAlgebra a => HeytingAlg
 
 derive newtype instance booleanAlgebraIdentity :: BooleanAlgebra a => BooleanAlgebra (Identity a)
 
-derive newtype instance semigroupIdenity :: Semigroup a => Semigroup (Identity a)
+derive newtype instance semigroupIdentity :: Semigroup a => Semigroup (Identity a)
 
 derive newtype instance monoidIdentity :: Monoid a => Monoid (Identity a)
 

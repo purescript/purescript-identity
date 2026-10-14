@@ -12,6 +12,8 @@ Bugfixes:
 
 Other improvements:
 
+- Migrate from Bower/Pulp to Spago and update CI and formatting tools.
+
 ## [v6.0.0](https://github.com/purescript/purescript-identity/releases/tag/v6.0.0) - 2022-04-27
 
 Breaking changes:
@@ -107,4 +109,3 @@ Initial release candidate of the library intended for the 0.7 compiler.
 ## [v0.1.0](https://github.com/purescript/purescript-identity/releases/tag/v0.1.0) - 2014-11-01
 
 - Initial release
-

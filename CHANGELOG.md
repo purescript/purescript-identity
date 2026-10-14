@@ -17,6 +17,7 @@ Other improvements:
 ## [v6.0.0](https://github.com/purescript/purescript-identity/releases/tag/v6.0.0) - 2022-04-27
 
 Breaking changes:
+
 - Update project and deps to PureScript v0.15.0 (#29 by @JordanMartinez)
 
 New features:
@@ -28,14 +29,17 @@ Other improvements:
 ## [v5.0.0](https://github.com/purescript/purescript-identity/releases/tag/v5.0.0) - 2021-02-26
 
 Breaking changes:
+
 - Added support for PureScript 0.14 and dropped support for all previous versions (#20)
 
 New features:
+
 - This package no longer depends on the `purescript-foldable-traversable` package. Relevant instances have been moved to that package. (#26)
 
 Bugfixes:
 
 Other improvements:
+
 - Migrated CI to GitHub Actions and updated installation instructions to use Spago (#22)
 - Added a CHANGELOG.md file and pull request template (#24, #25)
 - Updated `Identity`'s `Foldable1` instance to account for changes in `Foldable1` definition (#21, #23)
@@ -100,6 +104,7 @@ Initial release candidate of the library intended for the 0.7 compiler.
 ## [v0.3.0](https://github.com/purescript/purescript-identity/releases/tag/v0.3.0) - 2015-02-21
 
 **This release requires PureScript v0.6.8 or later**
+
 - Updated dependencies
 
 ## [v0.2.0](https://github.com/purescript/purescript-identity/releases/tag/v0.2.0) - 2015-01-10

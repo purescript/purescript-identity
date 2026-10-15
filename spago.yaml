@@ -1,5 +1,6 @@
 package:
   name: identity
+  description: The Identity type for wrapping a value
   build:
     strict: true
     pedanticPackages: true
